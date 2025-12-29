@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ثبت نام</title>
+  <style>
+    body {
+      margin: 0; font-family: 'Tahoma', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+    }
+    .container {
+      background: #fff; border-radius: 12px; padding: 30px 40px;
+      width: 400px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    h2 { text-align: center; margin-bottom: 25px; color: #333; }
+    input, select {
+      width: 100%; padding: 12px; margin: 10px 0;
+      border-radius: 6px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box;
+    }
+    .row { display: flex; gap: 10px; margin: 10px 0; }
+    .row select { margin: 0; flex: 1; }
+    .btn {
+      width: 100%; padding: 12px; background: #667eea; color: white;
+      font-weight: bold; border: none; border-radius: 6px; cursor: pointer;
+    }
+    .btn:hover { background: #5563d6; }
+    .links { margin-top: 20px; text-align: center; font-size: 14px; }
+    .links a { text-decoration: none; color: #667eea; font-weight: bold; }
+    .msg { color: red; text-align: center; margin-bottom: 10px; font-size: 13px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>ایجاد حساب کاربری</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}{% for msg in messages %}<div class="msg">{{ msg }}</div>{% endfor %}{% endif %}
+  {% endwith %}
+  <form method="post">
+    <input type="text" name="username" placeholder="ایمیل یا نام کاربری" required>
+    <input type="password" name="password" placeholder="رمز عبور" required>
+    <div class="row">
+        <select name="user_type">
+            <option value="normal">کاربر عادی</option>
+            <option value="admin">مدیر</option>
+        </select>
+        <select name="province">
+            <option value="">انتخاب استان</option>
+            <option value="tehran">تهران</option>
+            <option value="isfahan">اصفهان</option>
+            <option value="shiraz">فارس</option>
+            <option value="shiraz">البرز</option>
+            <option value="shiraz">زنجان</option>
+            <option value="shiraz">قزوین</option>
+            <option value="shiraz">یزد</option>
+            <option value="shiraz">کرمان</option>
+            <option value="shiraz">گیلان</option>
+            
+        </select>
+    </div>
+    <button type="submit" class="btn">ثبت نام</button>
+  </form>
+  <div class="links">حساب داری؟ <a href="/login">ورود</a></div>
+</div>
+</body>
+</html>

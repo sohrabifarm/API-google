@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #444;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #dadce0;
+    transition: background 0.3s;
+    margin-top: 15px;
+}
+
+.google-btn:hover {
+    background: #f7f8f8;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px; /* فاصله آیکون از متن در حالت راست‌چین */
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #888;
+}
+
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.separator:not(:empty)::before { margin-right: .25em; }
+.separator:not(:empty)::after { margin-left: .25em; }
+
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      width: 380px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #5563d6;
+    }
+
+    .links {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #667eea;
+      margin: 0 5px;
+      font-size: 14px;
+    }
+
+    .or {
+      text-align: center;
+      margin: 20px 0;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #4285F4;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .google-btn:hover {
+      background: #2f6ad9;
+    }
+
+    .google-btn img {
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    .msg {
+      margin-bottom: 15px;
+      color: green;
+      font-size: 14px;
+      text-align: center;
+    }
+    body {
+    margin: 0;
+    font-family: 'Tahoma', sans-serif;
+    background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>ورود به حساب کاربری</h2>
+
+  {% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+      <div class="msg">{{ msg }}</div>
+    {% endfor %}
+  {% endwith %}
+
+
+  <!-- فرم ورود با ایمیل و رمز -->
+  <form method="post">
+    <input type="text" name="username" placeholder="ایمیل یا نام کاربری">
+    <input type="password" name="password" placeholder="رمز عبور">
+    <button type="submit" class="btn">ورود</button>
+  </form>
+
+  <div class="links">
+    <a href="/register">ثبت‌نام</a> |
+    <a href="/forgot">فراموشی رمز</a>
+  </div>
+
+  
+
+  <!-- ورود با گوگل -->
+  <<div class="separator">یا</div>
+
+  <a href="/google/login" class="google-btn">
+      <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google Logo">
+      ورود با حساب گوگل
+  </a>
+</div>
+
+</body>
+</html>

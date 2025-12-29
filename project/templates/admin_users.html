@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مدیریت کاربران</title>
+    <style>
+        body { font-family: Tahoma; background: #f4f7f6; padding: 50px; }
+        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #667eea; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .back-btn { display: inline-block; margin-bottom: 10px; text-decoration: none; color: #667eea; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" class="back-btn">← بازگشت به داشبورد</a>
+        <h2>لیست کاربران ثبت‌نام شده</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>شناسه</th>
+                    <th>نام کاربری</th>
+                    <th>نوع کاربر</th>
+                    <th>استان</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ 'مدیر' if user.user_type == 'admin' else 'کاربر عادی' }}</td>
+                    <td>{{ user.province }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

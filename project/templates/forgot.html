@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>فراموشی رمز عبور</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      width: 380px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5563d6;
+    }
+
+    .msg {
+      margin-bottom: 15px;
+      color: green;
+      font-size: 14px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #667eea;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>فراموشی رمز عبور</h2>
+  <p>ایمیل خود را وارد کنید تا لینک بازیابی ارسال شود</p>
+  <form method="post">
+    <input type="text" name="email" placeholder="ایمیل یا نام کاربری خود را وارد کنید" required>
+    <button type="submit">ارسال لینک بازیابی</button>
+</form>
+
+  {% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+      <div class="msg">{{ msg }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  <form method="post">
+    <input type="email" name="email" placeholder="ایمیل" required>
+    <button type="submit">ارسال لینک بازیابی</button>
+  </form>
+
+  <a href="/login">بازگشت به ورود</a>
+</div>
+
+</body>
+</html>
